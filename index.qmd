@@ -192,9 +192,8 @@ plt.tight_layout()
 plt.show()
 ```
 
-## Step 3: Create Tonal Analysis (Optional Refinement Step)
-
-::: {.callout-note}
+## Step 3: Create Tonal Analysis
+<!-- ::: {.callout-note} 
 ## 🔧 Optional Refinement Step
 
 **Step 3 is optional** but highly recommended! It creates a box-averaged tonal analysis that helps you understand the brightness distribution across your image. Use this information to **tune the stippling parameters in Step 2** for better results.
@@ -204,7 +203,7 @@ plt.show()
 - Adjust `extreme_threshold_low` and `extreme_threshold_high` based on your image's tone distribution
 - Tune `mid_tone_center` to match important features (e.g., skin tones around 0.7)
 - Refine `extreme_downweight` based on how much you want to reduce stipples in extreme regions
-:::
+::: -->
 
 Create a tonal analysis by dividing the image into a grid and computing average brightness in each section. This visualizes the distribution of tones and helps identify which brightness ranges are most important.
 
@@ -256,25 +255,25 @@ plt.tight_layout()
 plt.show()
 
 # Print key statistics for parameter tuning
-print(f"\n📊 Tonal Statistics for Parameter Tuning:")
-print(f"  Mean brightness: {tonal_stats['mean']:.3f}")
-print(f"  Standard deviation: {tonal_stats['std']:.3f}")
-print(f"  Brightness range: [{tonal_stats['min']:.3f}, {tonal_stats['max']:.3f}]")
-print(f"\n💡 Tuning Tips:")
-print(f"  - If mean < 0.4: Image is dark, consider lowering extreme_threshold_low")
-print(f"  - If mean > 0.6: Image is light, consider raising extreme_threshold_high")
-print(f"  - If std > 0.2: High contrast, may need stronger extreme_downweight")
-print(f"  - Use mid_tone_center around {tonal_stats['mean']:.2f} to emphasize average tones")
+# print(f"\n📊 Tonal Statistics for Parameter Tuning:")
+# print(f"  Mean brightness: {tonal_stats['mean']:.3f}")
+# print(f"  Standard deviation: {tonal_stats['std']:.3f}")
+# print(f"  Brightness range: [{tonal_stats['min']:.3f}, {tonal_stats['max']:.3f}]")
+# print(f"\n💡 Tuning Tips:")
+# print(f"  - If mean < 0.4: Image is dark, consider lowering extreme_threshold_low")
+# print(f"  - If mean > 0.6: Image is light, consider raising extreme_threshold_high")
+# print(f"  - If std > 0.2: High contrast, may need stronger extreme_downweight")
+# print(f"  - Use mid_tone_center around {tonal_stats['mean']:.2f} to emphasize average tones")
 ```
 
-## Step 4: Create Block Letter "S" ⚠️ **YOUR TASK**
+## Step 4: Create Block Letter "S"
 
-::: {.callout-warning}
-## 🎯 Your Challenge: Write `step4_create_block_letter.py`
+<!-- ::: {.callout-warning} -->
+<!-- ## 🎯 Your Challenge: Write `step4_create_block_letter.py` -->
 
-**Task:** Create a function `create_block_letter_s()` that generates a block letter "S" matching your image dimensions.
+**Task:** Create a function `create_block_letter_s()` that generates a block letter "S" matching image dimensions.
 
-**Requirements:**
+<!-- **Requirements:**
 - Function signature: `create_block_letter_s(height: int, width: int, letter: str = "S", font_size_ratio: float = 0.9) -> np.ndarray`
 - Returns a 2D numpy array (height × width) with values in [0, 1]
 - The letter should be black (0.0) on a white background (1.0)
@@ -288,7 +287,7 @@ print(f"  - Use mid_tone_center around {tonal_stats['mean']:.2f} to emphasize av
 - The letter represents the "selection bias" pattern in your meme
 :::
 
-**Your code should go in a file called `step4_create_block_letter.py`.** Once you've written it, you'll use it like this:
+**Your code should go in a file called `step4_create_block_letter.py`.** Once you've written it, you'll use it like this: -->
 
 ```{python}
 #| label: step4-block-letter
@@ -316,12 +315,12 @@ print(f"  - Use mid_tone_center around {tonal_stats['mean']:.2f} to emphasize av
 
 ## Step 5: Create Masked Image ⚠️ **YOUR TASK**
 
-::: {.callout-warning}
-## 🎯 Your Challenge: Write `step5_create_masked.py`
+<!-- ::: {.callout-warning} -->
+<!-- ## 🎯 Your Challenge: Write `step5_create_masked.py` -->
 
 **Task:** Create a function `create_masked_stipple()` that applies the block letter mask to the stippled image.
 
-**Requirements:**
+<!-- **Requirements:**
 - Function signature: `create_masked_stipple(stipple_img: np.ndarray, mask_img: np.ndarray, threshold: float = 0.5) -> np.ndarray`
 - Returns a 2D numpy array with the same shape as the input images
 - Where the mask is dark (below threshold), remove stipples (set to white/1.0)
@@ -334,7 +333,7 @@ print(f"  - Use mid_tone_center around {tonal_stats['mean']:.2f} to emphasize av
 - The threshold determines what counts as "part of the mask"
 :::
 
-**Your code should go in a file called `step5_create_masked.py`.** Once you've written it, you'll use it like this:
+**Your code should go in a file called `step5_create_masked.py`.** Once you've written it, you'll use it like this: -->
 
 ```{python}
 #| label: step5-masked
@@ -361,14 +360,14 @@ print(f"  - Use mid_tone_center around {tonal_stats['mean']:.2f} to emphasize av
 # plt.show()
 ```
 
-## Create the Final Statistics Meme ⚠️ **YOUR TASK**
+## Create the Final Statistics Meme 
 
-::: {.callout-warning}
-## 🎯 Your Challenge: Write `create_meme.py`
+<!-- ::: {.callout-warning} -->
+<!-- ## 🎯 Your Challenge: Write `create_meme.py` -->
 
 **Task:** Create a function `create_statistics_meme()` that assembles all four panels into a professional-looking meme.
 
-**Requirements:**
+<!-- **Requirements:**
 - Function signature: `create_statistics_meme(original_img: np.ndarray, stipple_img: np.ndarray, block_letter_img: np.ndarray, masked_stipple_img: np.ndarray, output_path: str, dpi: int = 150, background_color: str = "white") -> None`
 - Creates a 1×4 layout (four panels side by side)
 - Each panel should be labeled: "Reality", "Your Model", "Selection Bias", "Estimate"
@@ -383,7 +382,7 @@ print(f"  - Use mid_tone_center around {tonal_stats['mean']:.2f} to emphasize av
 - Make sure all images are the same size or handle resizing appropriately
 :::
 
-**Your code should go in a file called `create_meme.py`.** Once you've written it, you'll use it like this:
+**Your code should go in a file called `create_meme.py`.** Once you've written it, you'll use it like this: -->
 
 ```{python}
 #| label: create-final-meme
