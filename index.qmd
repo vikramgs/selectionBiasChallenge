@@ -313,7 +313,7 @@ plt.show()
 # plt.show()
 ```
 
-## Step 5: Create Masked Image ⚠️ **YOUR TASK**
+## Step 5: Create Masked Image 
 
 <!-- ::: {.callout-warning} -->
 <!-- ## 🎯 Your Challenge: Write `step5_create_masked.py` -->
