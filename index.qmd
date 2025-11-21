@@ -1,6 +1,16 @@
 ---
 title: "Selection Bias & Missing Data Challenge"
 subtitle: "Creating a Statistics Meme: Write Your Own Functions"
+
+author: Vikram Goyal
+date: 2025-11-20
+output:
+  html_document:
+    toc: true
+    toc_depth: 2
+    number_sections: false
+    theme: readable
+    highlight: tango
 format:
   html: default
 execute:
@@ -10,12 +20,12 @@ execute:
 
 # 🎨 Selection Bias & Missing Data Challenge
 
-::: {.callout-important}
+<!-- ::: {.callout-important} -->
 ## 📊 Challenge Overview
 
 **Your Task:** Create a four-panel statistics meme demonstrating selection bias. You'll write three Python functions yourself to complete the workflow, then assemble them into a professional meme.
 
-**Deliverables:**
+<!-- **Deliverables:**
 
 1. Three Python functions you write yourself:
    - `step4_create_block_letter.py` - Create a block letter "S" matching image dimensions
@@ -81,14 +91,14 @@ Here's what your final meme should look like:
 
 ## Workflow Overview
 
-This challenge is organized into discrete steps. Steps 1-3 are provided for you. **You must write Steps 4-6 yourself:**
+This challenge is organized into discrete steps. Steps 1-3 are provided for you. **You must write Steps 4-5 and create_meme.py yourself:**
 
 1. **Step 1**: Prepare black and white image (provided) ✅
 2. **Step 2**: Create stippled image using blue noise stippling (provided) ✅
 3. **Step 3**: Create tonal analysis (optional refinement step, provided) ✅
 4. **Step 4**: Create block letter "S" matching image dimensions (**YOU WRITE THIS**) ⚠️
 5. **Step 5**: Create masked image by applying the letter mask to the stippled image (**YOU WRITE THIS**) ⚠️
-6. **Final**: Assemble all components into the four-panel meme (**YOU WRITE THIS**) ⚠️
+6. **create_meme.py**: Assemble all components into the four-panel meme (**YOU WRITE THIS**) ⚠️
 
 **Note:** Step 3 is optional but recommended. It helps you understand your image's brightness distribution and refine the stippling parameters in Step 2 for better results.
 
@@ -118,7 +128,7 @@ This challenge uses a modular design where each step is implemented as a discret
 
 **Supporting functions (provided):**
 - **`importance_map.py`**: Computes importance map for stippling
-- **`stippling_functions.py`**: Core stippling algorithm functions
+- **`stippling_functions.py`**: Core stippling algorithm functions -->
 
 ## Step 1: Prepare Image
 
@@ -135,7 +145,7 @@ from step1_prepare_image import prepare_image
 
 # Load and prepare the image
 # CHANGE THIS to use your own image!
-img_path = 'fleischhacker.jpg'  # Example image - replace with your own image
+img_path = 'vikramgoyal2.jpeg'  # Example image - replace with your own image
 gray_image = prepare_image(img_path, max_size=512)
 
 # Display the prepared image
@@ -395,7 +405,7 @@ print(f"  - Use mid_tone_center around {tonal_stats['mean']:.2f} to emphasize av
 # )
 ```
 
-## Your Final Submission
+<!-- ## Your Final Submission
 
 ### Complete Checklist
 
@@ -406,7 +416,7 @@ To complete this challenge, you must:
 3. ⭐ **Optionally use Step 3** to analyze tonal distribution and refine Step 2 parameters (recommended)
 4. ⚠️ **Write Step 4**: Create `step4_create_block_letter.py` to generate the block letter "S"
 5. ⚠️ **Write Step 5**: Create `step5_create_masked.py` to apply the mask
-6. ⚠️ **Write Final Step**: Create `create_meme.py` to assemble the four-panel meme
+6. ⚠️ **Write create_meme.py**: Create `create_meme.py` to assemble the four-panel meme
 7. ✅ **Create a complete `index.qmd`** that uses all functions (with code hidden)
 8. ✅ **Generate your final meme** using your own image
 9. ✅ **Include a brief explanation** (1-3 sentences) of how the meme demonstrates selection bias
@@ -419,7 +429,7 @@ To complete this challenge, you must:
 
 ### Template for Final Section
 
-Here's a template for your final section:
+Here's a template for your final section: -->
 
 ```{python}
 #| label: final-meme
@@ -435,7 +445,7 @@ Here's a template for your final section:
 # display(Image("my_statistics_meme.png"))
 ```
 
-### Example Explanation
+<!-- ### Example Explanation
 
 Your explanation should be 1-3 sentences. Here's an example:
 
@@ -449,7 +459,24 @@ Your explanation should be 1-3 sentences. Here's an example:
 4. **Test Incrementally**: Test each function separately before integrating them
 5. **Professional Output**: Make your meme look polished with good labels, spacing, and layout
 6. **Code Organization**: Keep your functions in separate `.py` files as specified
-7. **Documentation**: Add docstrings to your functions explaining parameters and return values
+7. **Documentation**: Add docstrings to your functions explaining parameters and return values -->
+
+## Final Statistics Meme
+
+```{python}
+#| label: display-statistics-meme
+#| echo: false
+#| fig-cap: "Statistics meme demonstrating selection bias"
+
+from IPython.display import Image, display
+
+# Display the final statistics meme
+display(Image("statistics_meme.png"))
+```
+
+### Explanation
+
+This meme demonstrates selection bias by showing how systematic missing data patterns distort our understanding of reality. The original image (Reality) represents the true population, while the stippled version (Your Model) shows our data collection through sampling. When selection bias removes data points in a systematic "S" pattern, the resulting estimate becomes biased and no longer accurately represents the true population, just as missing data in real-world studies can lead to incorrect conclusions.
 
 ## Conclusion
 
